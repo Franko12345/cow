@@ -1,7 +1,7 @@
 #include "../include/GlobalDefines.hpp"
+#include "../include/Entity.hpp"
 
-
-pair<int, int> direction(pair<int, int> a, pair<int,int> b){
+Vec2 direction(pair<int, int> a, pair<int,int> b){
     return {b.first - a.first, b.second-a.second};
 }
 
@@ -16,13 +16,13 @@ class Tile{
         Floor base;
         int temperature, light;
         vector<Entity> entities;
-        Crop crop;
-        map<Feromones, int> feromones;
-        Machine machine;
+        // Crop crop;
+        // map<Feromones, int> feromones;
+        // Machine machine;
 
         void tick(){
-            crop.tick();
-            machine.tick();
+            // crop.tick();
+            // machine.tick();
             for(auto E: entities)
                 E.tick();
 

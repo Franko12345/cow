@@ -47,9 +47,9 @@ vector<Vec2> Entity::search_for_tiles(vector<Floor> targets){
     }
 }
 
-vector<Vec2> Entity::closest_tile(vector<Floor> targets){
-    vector<Tile> found_tiles = search_for_tiles(targets);
-    return *max_element(found_tiles.begin(), found_tiles.end(), [](const Tile a, const Tile b){return distance(pos, a) < distance(pos, b)});
+Vec2 Entity::closest_tile(vector<Floor> targets){
+    vector<Vec2> found_tiles = search_for_tiles(targets);
+    return *max_element(found_tiles.begin(), found_tiles.end(), [](const Vec2 a, const Vec2 b){return distance(pos, a) < distance(pos, b)});
 }
 
 
@@ -62,7 +62,7 @@ void Entity::tick(){
             move();
             break;
         case EntityState::searching_food:
-            pair<int, int> found = search_for_tiles(diet);
+            Vec2 found = search_for_tiles(diet);
             if(found != make_pair(-1, -1)) {
                 Vec2 dir = direction(pos, found);
                 move()

@@ -1,4 +1,5 @@
 #include "../include/GlobalDefines.hpp"
+#include "../include/utils.h"
 
 Vec2 direction(Vec2 a, Vec2 b){
     return {b.first - a.first, b.second-a.second};
