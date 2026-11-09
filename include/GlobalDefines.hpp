@@ -9,10 +9,25 @@
 #include <utility>
 #include <vector>
 #include <cmath>
+#include <memory>
+#include <array>
+#include <numeric>
+#include <random>
+#include <type_traits>
+#include <cstdint>
+#include <iomanip>
+#include <sys/types.h>
 
 using namespace std;
 
-using Vec2 = pair<int,int>;
+const uint8_t WORLD_SIZE = 20;
+
+typedef struct {
+    int x, y;
+} Vec2;
+
+bool operator==(const Vec2 &a, const Vec2 &b);
+bool operator!=(const Vec2 &a, const Vec2 &b);
 
 enum Floor {
     soil,
